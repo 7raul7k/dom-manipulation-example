@@ -20,9 +20,7 @@ hide.addEventListener("click", (e) => {
      
 
 listDiv.classList.toggle("hide");
-
   if (flag == true) {
-   
     hide.textContent = "Show list";
     flag = false;
   } else {
@@ -46,4 +44,19 @@ descriptionButton.addEventListener("click",()=>{
     newDescription.value = "";
 
 })
+
+let addButton = document.querySelector(".addItemButton");
+let addItemInput = document.querySelector(".addItemInput");
+let items = document.querySelector("ul");
+
+addButton.addEventListener("click", () => {
+    let newItem = document.createElement("li");
+    newItem.innerHTML = addItemInput.value + '<button class="up">Up</button><button class="down">Down</button><button class="remove">Remove</button>';
+
+    items.appendChild(newItem);
+
+    addItemInput.value = "";
+});
+
+
 
