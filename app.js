@@ -58,5 +58,34 @@ addButton.addEventListener("click", () => {
     addItemInput.value = "";
 });
 
+let upButton = document.querySelector(".up");
+
+upButton.addEventListener("click",(e)=>{
+
+  console.log(e.target);
+})
+let list = document.querySelector("ul");
+
+list.addEventListener("click", function(event) {
+  let target = event.target;
+  let li = target.parentNode;
+  if (target.classList.contains("up")) {
+    
+    let previousLi = li.previousElementSibling;
+    if (previousLi) {
+      li.parentNode.insertBefore(li, previousLi);
+    }
+  } else if (target.classList.contains("down")) {
+   
+    let nextLi = li.nextElementSibling;
+    if (nextLi) {
+      li.parentNode.insertBefore(nextLi, li);
+    }
+  } else if (target.classList.contains("remove")) {
+  
+    li.parentNode.removeChild(li);
+  }
+});
+
 
 
